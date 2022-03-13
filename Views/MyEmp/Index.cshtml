@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplication2.Models.Empl>
+<a asp-action="Create" asp-controller="MyEmp" class="btn btn-outline-primary">ADD NEW CUSTOMER</a>
+
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var items in Model)
+            {
+            <tr>
+                <td>@items.Name</td>
+                <td>@items.Gender</td>
+                <td>@items.Age</td>
+                <td>@items.Phone</td>
+                <td>@items.Address</td>
+                <td>
+                    <a class="btn btn-outline-info" asp-action="UpdateD" asp-route-Id="@items.id" value="Edit">Edit</a>&nbsp;&nbsp;&nbsp;
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-Id="@items.id" onclick="return confirm('Do You Want to Delete this Record')">Delete</a>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
